@@ -1,0 +1,46 @@
+<md-tab-group>
+  <md-tab label="All Programmes"></md-tab>
+  <md-tab label="My Programmes"></md-tab>
+  <md-tab label="My Passes">
+    <div class="myPage">
+      <div *ngIf="edit == true">
+        <form #formData="ngForm" (ngSubmit)="addSubject(formData)">
+          <md-select *ngIf="group == 'cxc'" class="mySelect myInput" placeholder="Enter CXC Subject" name="cxc_subject" [(ngModel)]="cxc">
+            <md-option *ngFor="let a of cxcSubjects" [value]="a">
+              {{a}}
+            </md-option>
+          </md-select>
+          <md-select *ngIf="group == 'cape'"class="mySelect myInput" placeholder="Enter CAPE Subject" name="cape_subject" [(ngModel)]="cape">
+            <md-option *ngFor="let b of capeSubjects" [value]="b">
+              {{b}}
+            </md-option>
+          </md-select>
+          <md-radio-group class="myInput" [(ngModel)]="group" name="myGroup">
+            <md-radio-button value="cxc">CXC</md-radio-button>
+            <md-radio-button value="cape">CAPE</md-radio-button>
+          </md-radio-group>
+          <div>
+            <button md-raised-button class="myInput" type="submit">Add</button>
+          </div>
+        </form>
+      </div> 
+      <div>
+        <md-list class="myInput">
+          <h3 md-subheader>CXC Subjects</h3>
+          <md-list-item *ngFor="let cxc of userCxcSubjects">
+              <md-icon md-list-icon>folder</md-icon>
+              <h4 md-line>{{cxc}}</h4>
+          </md-list-item>
+          <md-divider></md-divider>
+          <h3 md-subheader>CAPE Subjects</h3>
+          <md-list-item *ngFor="let cape of userCapeSubjects">
+              <md-icon md-list-icon>note</md-icon>
+              <h4 md-line>{{cape}}</h4>
+          </md-list-item>
+      </md-list>
+      </div>
+    </div>
+    <span class="mySpacer"></span>
+    <button md-mini-fab (click)="editData()"><md-icon>check</md-icon></button> 
+  </md-tab>
+</md-tab-group>
