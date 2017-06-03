@@ -1,7 +1,15 @@
 <md-tab-group>
-  <md-tab label="All Programmes"></md-tab>
+  <md-tab label="All Programmes">
+    <md-list>
+      <md-list-item *ngFor="let programme of allProgrammes; let i = index" (click)="openDialog(programme)">
+        <img md-list-avatar src="../assets/images/{{imageList[i]}}.jpg">
+        <h3 md-line>{{programme.Degree}} {{programme. Programme}}</h3>
+        <p md-line><span>{{programme.Faculty}}</span></p>
+      </md-list-item>
+    </md-list>
+  </md-tab>
   <md-tab label="My Programmes"></md-tab>
-  <md-tab label="My Passes">
+  <md-tab label="My Passes" class="fab-container">
     <div class="myPage">
       <div *ngIf="edit == true">
         <form #formData="ngForm" (ngSubmit)="addSubject(formData)">
@@ -15,12 +23,14 @@
               {{b}}
             </md-option>
           </md-select>
-          <md-radio-group class="myInput" [(ngModel)]="group" name="myGroup">
+          <div class="myInput">
+            <md-radio-group [(ngModel)]="group" name="myGroup">
             <md-radio-button value="cxc">CXC</md-radio-button>
             <md-radio-button value="cape">CAPE</md-radio-button>
           </md-radio-group>
-          <div>
-            <button md-raised-button class="myInput" type="submit">Add</button>
+          </div>
+          <div class="myInput">
+            <button md-raised-button class="myAddButton" type="submit">Add</button>
           </div>
         </form>
       </div> 
@@ -28,19 +38,23 @@
         <md-list class="myInput">
           <h3 md-subheader>CXC Subjects</h3>
           <md-list-item *ngFor="let cxc of userCxcSubjects">
-              <md-icon md-list-icon>folder</md-icon>
+              <md-icon md-list-icon class="icon">folder</md-icon>
               <h4 md-line>{{cxc}}</h4>
+              <md-icon class="icon" (click)="deleteCXCSubject()">delete</md-icon> 
           </md-list-item>
           <md-divider></md-divider>
           <h3 md-subheader>CAPE Subjects</h3>
           <md-list-item *ngFor="let cape of userCapeSubjects">
-              <md-icon md-list-icon>note</md-icon>
+              <md-icon md-list-icon class="icon">note</md-icon>
               <h4 md-line>{{cape}}</h4>
+              <md-icon class="icon" (click)="deleteCXCSubject()">delete</md-icon> 
           </md-list-item>
       </md-list>
       </div>
     </div>
-    <span class="mySpacer"></span>
-    <button md-mini-fab (click)="editData()"><md-icon>check</md-icon></button> 
+    <!--<button md-mini-fab (click)="editData()"><md-icon>check</md-icon></button>-->
+    <button md-fab (click)="editData()" class="example-fab">
+      <md-icon>edit</md-icon>
+    </button>
   </md-tab>
 </md-tab-group>

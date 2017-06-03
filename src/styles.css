@@ -13,6 +13,7 @@
     width: 100%;
 }
 .myInput{
+    padding: 10px;
     margin-top: 10px;
     top: 10px;
 }
@@ -21,4 +22,19 @@
 }
 .mySpacer{
     width: 80%;
+}
+.icon{
+    color: indigo;
+}
+.myAddButton{
+    color: indigo;
+}
+.example-fab {
+  position: fixed;
+  right: -270px;
+}
+.fab-container{
+    display: flex;
+    overflow: visible;
+    position: relative;
 }

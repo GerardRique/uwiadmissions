@@ -10,6 +10,7 @@ import { CoursesComponent } from './courses/courses.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from 'angularfire2';
+import { ProgrammeDataDialogComponent } from './programme-data-dialog/programme-data-dialog.component';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyCoSa_3upryZCjoQ7DlTLzc9ISMhKzog_8",
@@ -24,8 +25,10 @@ export const firebaseConfig = {
     AppComponent,
     CoursesComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
+    ProgrammeDataDialogComponent
   ],
+  entryComponents: [ProgrammeDataDialogComponent],
   imports: [
     BrowserModule,
     FormsModule,
