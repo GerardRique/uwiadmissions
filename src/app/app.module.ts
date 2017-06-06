@@ -11,6 +11,8 @@ import { CoursesComponent } from './courses/courses.component';
 import { SignupComponent } from './signup/signup.component';
 import { LoginComponent } from './login/login.component';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ProgrammeDataDialogComponent } from './programme-data-dialog/programme-data-dialog.component';
 
 export const firebaseConfig = {
@@ -35,6 +37,8 @@ export const firebaseConfig = {
     FormsModule,
     HttpModule,
     AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     MaterialModule,
     BrowserAnimationsModule,
     MdButtonModule,

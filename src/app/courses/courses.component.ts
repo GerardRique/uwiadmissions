@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable} from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 import { FirebaseServiceService } from '../firebase-service.service';
 import {MdDialog, MdDialogRef } from '@angular/material';
 import { ProgrammeDataDialogComponent } from '../programme-data-dialog/programme-data-dialog.component'
@@ -22,13 +22,13 @@ export class CoursesComponent implements OnInit {
   group = 'cxc';
   color = 'primary';
 
-  constructor(public af: AngularFire, private data: FirebaseServiceService, public dialog: MdDialog) {
-    this.af.database.list('/CSECSubjects', {preserveSnapshot: true}).subscribe(snapshots => {
+  constructor(public af: AngularFireDatabase, private data: FirebaseServiceService, public dialog: MdDialog) {
+    this.af.list('/CSECSubjects', {preserveSnapshot: true}).subscribe(snapshots => {
       snapshots.forEach(snapshot =>{
         this.cxcSubjects.push(snapshot.val());
       })
     });
-    this.af.database.list('/CAPESubjects', {preserveSnapshot: true}).subscribe(snapshots =>{
+    this.af.list('/CAPESubjects', {preserveSnapshot: true}).subscribe(snapshots =>{
       snapshots.forEach(snapshot =>{
         this.capeSubjects.push(snapshot.val());
       })

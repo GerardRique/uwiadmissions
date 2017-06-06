@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { AngularFire, FirebaseListObservable} from 'angularfire2';
+import { AngularFireDatabase, FirebaseListObservable} from 'angularfire2/database';
 @Injectable()
 export class FirebaseServiceService {
 
   allProgrammes = [];
 
-  constructor(public af: AngularFire) { }
+  constructor(public af: AngularFireDatabase) { }
 
   retrieveProgrammes(){
-    return this.af.database.list('/Programmes', {preserveSnapshot: true});
+    return this.af.list('/Programmes', {preserveSnapshot: true});
   }
 
 }
