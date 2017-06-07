@@ -6,7 +6,12 @@ import {MdDialog, MdDialogRef } from '@angular/material';
   styleUrls: ['./programme-data-dialog.component.css']
 })
 export class ProgrammeDataDialogComponent implements OnInit {
-  currentProgramme: Object;
+  //currentProgramme: Object; 
+  currentProgramme = {
+    'Programme': '',
+    'Faculty': '',
+    'Description': ''
+  };
   constructor(public dialogRef: MdDialogRef<ProgrammeDataDialogComponent>) { }
 
   ngOnInit() {
