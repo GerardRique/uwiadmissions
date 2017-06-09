@@ -13,6 +13,10 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
 
+##Generating Service Worker
+
+Run the command npm run sw to generate the applications service worker. This file will be generated in the dist folder. 
+
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

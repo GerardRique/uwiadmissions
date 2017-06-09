@@ -66,7 +66,10 @@ export class CoursesComponent implements OnInit {
     this.edit = !this.edit;
   }
   deleteCXCSubject(index){
-    console.log("Deleted");
+    this.userCxcSubjects.splice(index, 1);//The second parameter of the splice function indicates how many elements should be removed. 
+  }
+  deleteCapeSubject(index){
+    this.userCapeSubjects.splice(index, 1);
   }
 
 }
